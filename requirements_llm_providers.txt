@@ -1,0 +1,21 @@
+# Additional LLM Provider Dependencies
+# Install these based on which providers you want to use
+
+# OpenAI (GPT-3.5, GPT-4, GPT-4o)
+langchain-openai>=0.1.0
+
+# Anthropic Claude (Claude-3 family)
+langchain-anthropic>=0.1.0
+
+# Hugging Face (Various open-source models)
+langchain-huggingface>=0.0.1
+huggingface-hub>=0.20.0
+
+# Optional: For better performance
+tiktoken>=0.5.0  # OpenAI token counting
+
+# Note: Install only what you need
+# For OpenAI only: pip install langchain-openai tiktoken
+# For Claude only: pip install langchain-anthropic
+# For Hugging Face only: pip install langchain-huggingface huggingface-hub
+# For all providers: pip install -r requirements_llm_providers.txt
