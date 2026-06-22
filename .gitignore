@@ -68,6 +68,9 @@ htmlcov/
 # Google API Credentials
 credentials.json
 token.json
+token.pickle
+calendar_token.pickle
+
 *.json
 
 # Temporary files
