@@ -517,7 +517,31 @@ See [FUTURE_PHASES_ROADMAP.md](docs/FUTURE_PHASES_ROADMAP.md) for details.
 
 ### Generative AI Products & Services Used
 
-This project leverages multiple enterprise-grade generative AI platforms and services to deliver production-ready capabilities:
+This project was developed using **IBM Bob**, IBM's AI-powered coding assistant, which provided intelligent code generation, architecture guidance, and best practices implementation throughout the development lifecycle.
+
+The project leverages multiple enterprise-grade generative AI platforms and services to deliver production-ready capabilities:
+
+#### **IBM watsonx & IBM Bob**
+
+**IBM Bob (AI Coding Assistant)**
+
+- **Product Used**: IBM Bob for AI-assisted software development
+- **Implementation**: End-to-end project development with AI pair programming
+- **Use Cases**:
+  - Intelligent code generation for multi-agent architecture
+  - Best practices implementation for LangGraph and LangChain
+  - Architecture design and pattern recommendations
+  - Documentation generation and technical writing
+  - Debugging and optimization suggestions
+  - Test suite development and quality assurance
+
+**Benefits Achieved**:
+
+- Accelerated development velocity with AI-assisted coding
+- Consistent code quality and architectural patterns
+- Comprehensive documentation generated with AI assistance
+- Reduced technical debt through AI-guided refactoring
+- Enhanced testing coverage with AI-generated test cases
 
 #### **LLM Provider Integrations**
 
@@ -954,12 +978,15 @@ python -c "from app.tools.rag_tools import store_recent_emails; store_recent_ema
 
 ## 🙏 Acknowledgments
 
+- **IBM Bob** - IBM's AI coding assistant that powered the development of this project
+- **IBM watsonx** - For enterprise AI capabilities and trustworthy AI principles
 - **LangChain** team for the excellent LLM framework
 - **LangGraph** for powerful agent orchestration
 - **Ollama** for making local LLMs accessible
 - **Streamlit** for the intuitive UI framework
 - **ChromaDB** for efficient vector storage
 - **OpenAI**, **Anthropic**, **Hugging Face** for LLM APIs
+- **Google Cloud Platform** for Gmail and Calendar API integration
 
 ## 📊 Project Stats
 
