@@ -35,6 +35,8 @@ An intelligent AI-powered executive assistant built with LangGraph, LangChain, a
 
 ## Architecture
 
+### 🗂️ Project Structure
+
 ```
 AI_Executive_Assistant/
 ├── app/
@@ -60,6 +62,130 @@ AI_Executive_Assistant/
 ├── .env                # Environment variables
 └── requirements.txt    # Python dependencies
 ```
+
+---
+
+### 🔄 Architecture Flow Diagram
+
+```mermaid
+flowchart TD
+    %% ── User Interfaces ──────────────────────────────────────────
+    subgraph UI["🖥️ User Interfaces"]
+        A1["Streamlit Web UI\n(app.py / app_ui.py)"]
+        A2["Interactive CLI\n(main.py)"]
+    end
+
+    %% ── Entry Point ──────────────────────────────────────────────
+    B["🔀 LangGraph Supervisor Agent\n(app/graph/)"]
+
+    %% ── Specialised Agents ───────────────────────────────────────
+    subgraph AGENTS["🤖 Specialised Agents  (app/agents/)"]
+        C1["📧 Email Agent"]
+        C2["🧠 Knowledge Agent"]
+        C3["📅 Calendar Agent"]
+        C4["👤 Human-in-the-Loop\nApproval Node"]
+    end
+
+    %% ── Core Tools ───────────────────────────────────────────────
+    subgraph TOOLS["🔧 Core Tools  (app/tools/)"]
+        D1["Gmail Tools\n(read / search / draft / send)"]
+        D2["RAG Search Tools\n(semantic query)"]
+        D3["Calendar Tools\n(events / scheduling)"]
+        D4["Planning Tools\n(task decomposition)"]
+    end
+
+    %% ── LLM Providers ────────────────────────────────────────────
+    subgraph LLM["🧠 LLM Providers"]
+        E1["Ollama\n(local)"]
+        E2["OpenAI GPT-4o"]
+        E3["Anthropic Claude"]
+        E4["Hugging Face"]
+    end
+
+    %% ── Data & Memory ────────────────────────────────────────────
+    subgraph MEMORY["💾 Data & Memory  (app/memory/ · app/rag/)"]
+        F1["ChromaDB\nVector Store"]
+        F2["SQLite\n(memory · jobs · plans)"]
+        F3["SentenceTransformers\nEmbeddings"]
+    end
+
+    %% ── External APIs ────────────────────────────────────────────
+    subgraph APIS["🌐 External APIs"]
+        G1["Gmail API\n(OAuth2)"]
+        G2["Google Calendar API\n(OAuth2)"]
+    end
+
+    %% ── Background Services ──────────────────────────────────────
+    subgraph BG["⏰ Background Services"]
+        H1["APScheduler\n(app/scheduler/)"]
+        H2["Multi-Step Planner\n(app/planning/)"]
+    end
+
+    %% ── Observability ────────────────────────────────────────────
+    subgraph OBS["📊 Observability & Evaluation"]
+        I1["Metrics & Logging\n(app/observability/)"]
+        I2["Email Analytics\n(app/analytics/)"]
+        I3["Agent Evaluation\n(app/evaluation/)"]
+    end
+
+    %% ── Edges ────────────────────────────────────────────────────
+    A1 -->|user request| B
+    A2 -->|user request| B
+
+    B --> C1
+    B --> C2
+    B --> C3
+    B --> C4
+
+    C1 --> D1
+    C2 --> D2
+    C3 --> D3
+    C4 -->|approve / reject| D1
+
+    D2 --> F1
+    D2 --> F3
+    F3 --> F1
+
+    D4 --> F2
+    H2 --> D4
+
+    B -->|LLM calls| E1
+    B -->|LLM calls| E2
+    B -->|LLM calls| E3
+    B -->|LLM calls| E4
+
+    D1 --> G1
+    D3 --> G2
+
+    C1 --> F2
+    C2 --> F2
+    C3 --> F2
+
+    H1 --> C1
+    H1 --> H2
+
+    B --> I1
+    D1 --> I2
+    B --> I3
+```
+
+## IMAGE
+
+![alt text](Architecture Flow Diagram.png)
+![alt text](image.png)
+![alt text](image-1.png)
+![alt text](image-2.png)
+![alt text](image-3.png)
+![alt text](image-4.png)
+![alt text](image-5.png)
+![alt text](image-6.png)
+![alt text](image-7.png)
+![alt text](image-8.png)
+![alt text](image-9.png)
+![alt text](image-10.png)
+![alt text](image-11.png)
+
+---
 
 ## 📋 Prerequisites
 
